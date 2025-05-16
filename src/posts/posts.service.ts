@@ -14,10 +14,7 @@ export class PostsService {
   ) {}
 
   async create(createPostDto: CreatePostDto): Promise<Post> {
-    const createdPost = new this.postModel({
-      ...createPostDto,
-      imageUrl: createPostDto.imageUrl, // Ensure the image URL is included in the post creation
-    });
+    const createdPost = new this.postModel(createPostDto);
     return createdPost.save();
   }
 

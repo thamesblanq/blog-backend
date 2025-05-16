@@ -36,7 +36,7 @@ export class PostsController {
   @Roles('admin', 'user') // Only admin can create posts
   create(@Body() createPostDto: CreatePostDto) {
     const { imageUrl } = createPostDto; // Extract the image URL from the request body
-    return this.postsService.create({ ...createPostDto, imageUrl });
+    return this.postsService.create(createPostDto);
   }
 
   //get all posts
